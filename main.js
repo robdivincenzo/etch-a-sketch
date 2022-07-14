@@ -6,13 +6,9 @@ let backgroundColor = getRandomColor();
 
 calculateGrid();
 
-
+/* Event Listeners */
 customLayoutButton.addEventListener('click', newGridPrompt);
-newRandomColorButton.addEventListener('click', function (e) {
-    backgroundColor = getRandomColor();
-    setNewColorToTiles();
-});
-
+newRandomColorButton.addEventListener('click', assignNewColors);
 
 
 /* Functions */
@@ -42,6 +38,11 @@ function newGridPrompt(e){
         newSize = 16;
     }
     calculateGrid(newSize);
+}
+
+function assignNewColors(e) {
+    backgroundColor = getRandomColor();
+    setNewColorToTiles();
 }
 
 function getRandomColor() {
