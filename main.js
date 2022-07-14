@@ -1,9 +1,18 @@
 /* Run JS */
 const container = document.querySelector('div#container');
 const customLayoutButton = document.querySelector('button#custom-layout-prompt');
+const newRandomColorButton = document.querySelector('button#new-random-color');
+let backgroundColor = getRandomColor();
+
 calculateGrid();
 
+
 customLayoutButton.addEventListener('click', newGridPrompt);
+newRandomColorButton.addEventListener('click', function (e) {
+    backgroundColor = getRandomColor();
+    setNewColorToTiles();
+});
+
 
 
 /* Functions */
@@ -23,7 +32,8 @@ function clearGrid() {
 }
 
 function colorTile(e) {
-    this.style.backgroundColor = "salmon";
+    this.style.backgroundColor = backgroundColor;
+    this.classList.add("colorful");
 }
 
 function newGridPrompt(e){
@@ -32,4 +42,18 @@ function newGridPrompt(e){
         newSize = 16;
     }
     calculateGrid(newSize);
+}
+
+function getRandomColor() {
+    red = Math.floor(Math.random() * 255);
+    blue = Math.floor(Math.random() * 255);
+    green = Math.floor(Math.random() * 255);
+    return `rgb(${red},${blue},${green})`;
+}
+
+function setNewColorToTiles() {
+    let colorfulTiles = document.querySelectorAll("div.colorful");
+    colorfulTiles.forEach( (tile) => {
+        tile.style.backgroundColor = backgroundColor;
+    });
 }
