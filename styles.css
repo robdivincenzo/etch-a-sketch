@@ -1,0 +1,27 @@
+body {
+    text-align: center;
+    max-width: 1000px;
+    margin: auto;
+    font-size: 16px;
+}
+h1 {
+    font-family: Helvetica, sans-serif;
+}
+#container {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    border: 1px solid black;
+}
+
+.grid-item {
+    aspect-ratio: 1 / 1;
+}
+
+button#custom-layout-prompt {
+    margin: 0 0 20px;
+    background-color: aquamarine;
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid black;
+}
